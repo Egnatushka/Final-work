@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+
+{% block title %}{{ order.customer }}{% endblock %}
+
+
+{% block content %}
+
+    <div>
+
+        <div>{{ order.customer }}</div>
+        <div>{{ order.phone }}</div>
+        <div>{{ order.email }}</div>
+        <div>{{ order.adress }}</div>
+        <div>{{ order.description }}</div>
+
+
+    </div>
+
+{% endblock %}

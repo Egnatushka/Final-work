@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+
+
+{% block title %}Активны заказы{% endblock %}
+
+
+{% block content %}
+
+    <div>Ваши активные заказы :</div><br>
+
+
+
+    {% for tag in tag %}
+
+        {% if tag.title == 'active' %}
+
+            {% for order in tag.orders.all %}
+
+                <div>
+                    <div>{{ order.customer }}</div>
+                    <div>{{ order.adress }}</div>
+                    <div>{{ order.description|truncatewords:25 }}</div>
+                </div><br>
+
+            {% endfor %}
+
+        {% endif %}
+
+    {% endfor %}
+
+
+
+
+{% endblock %}
