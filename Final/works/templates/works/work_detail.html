@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    {{ work.title }}
+{% endblock %}
+
+
+{% block content %}
+
+    <div>
+        <div>{{ work.title }}</div>
+        <img src="{{ work.photo.url }}" alt="work_photo" width="200px" height="200px">
+        <div>{{ work.description }}</div>
+    </div>
+
+{% endblock %}
