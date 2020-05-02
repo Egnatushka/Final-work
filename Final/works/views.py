@@ -1,7 +1,8 @@
-from django.shortcuts import render
-from .models import *
+from django.shortcuts import render, redirect
 from django.views import View
 
+from .models import *
+from .forms import *
 
 
 
@@ -11,8 +12,7 @@ def index(request):
 
 
 
-class WorksDetail(View):
-    
+class WorksDetail(View):    
     def get(self, request, works_ex_id):
         work = Work.objects.get(id=works_ex_id)
         return render(request, 'works/work_detail.html', context={'work':work})
@@ -40,3 +40,18 @@ class ActivOrderList(View):
         tag = Tag.objects.all()
         return render(request, 'works/activ_order.html', context={'tag': tag})
 
+
+
+class OrderCreate(View):
+
+    def get(self, request):
+        order = OrderForm()
+        return render(request, 'works/order_create.html', context={'order': order})
+
+    def post(self, request):
+        bound_form = OrderForm(request.POST)
+
+        if bound_form.is_valid():
+            new_order = bound_form.save()
+            return redirect(new_order)
+        return render(request, 'works/order_create.html', context={'order': bound_form})
