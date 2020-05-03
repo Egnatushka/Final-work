@@ -28,6 +28,9 @@ class Order(models.Model):
     def get_absolute_url(self):
         return reverse('order_detail_url', kwargs={'order_id': self.id})
 
+    def get_update_url(self):
+        return reverse('order_update_url', kwargs={'order_id': self.id})
+
     def __str__(self):
         return self.customer
 

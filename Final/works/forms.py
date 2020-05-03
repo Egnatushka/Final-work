@@ -13,3 +13,10 @@ class OrderForm(forms.ModelForm):
             'adress',
             'description'
         ]
+
+
+class OrderUpdateForm(forms.ModelForm):
+
+    class Meta:
+        model = Order
+        fields = ['tag']

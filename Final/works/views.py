@@ -42,6 +42,14 @@ class ActivOrderList(View):
 
 
 
+class ComplitedOrder(View):
+
+    def get(self, request):
+        tag = Tag.objects.all()
+        return render(request, 'works/complited_order.html', context={'tag': tag})
+
+
+
 class OrderCreate(View):
 
     def get(self, request):
@@ -55,3 +63,21 @@ class OrderCreate(View):
             new_order = bound_form.save()
             return redirect(new_order)
         return render(request, 'works/order_create.html', context={'order': bound_form})
+
+
+
+class OrderUpdate(View):
+
+    def get(self, request, order_id):
+        order = Order.objects.get(id=order_id)
+        bound_form = OrderUpdateForm(instance=order)
+        return render(request, 'works/order_update.html', context={'form': bound_form, 'order': order})
+
+    def post(self, request, order_id):
+        order = Order.objects.get(id=order_id)
+        bound_form = OrderUpdateForm(request.POST, instance=order)
+
+        if bound_form.is_valid():
+            new_order = bound_form.save()
+            return redirect(new_order)
+        return render(request, 'works/order_update.html', context={'form': bound_form, 'order': order})
