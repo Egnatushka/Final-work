@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+
+{% block title %}Обновление состояния заказа{% endblock %}
+
+
+{% block content %}
+
+    <div>Обновление заказа {{ order.customer }} :</div>
+
+    <form action="{{ order.get_update_url }}" method="POST">
+        {% csrf_token %}
+
+        <div>{{ form.tag }}</div>
+
+        <button type="submit" name="button">Обновать заказ</button>
+
+
+    </form>
+
+{% endblock %}
