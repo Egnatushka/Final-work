@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block title %}Список заказов{% endblock %}
+
+
+{% block content %}
+
+    <div>Список заказов</div><br>
+
+    {% for order in orders %}
+
+        <div>
+            <div>{{ order.customer }}</div>
+            <div>{{ order.adress }}</div>
+            <div>{{ order.description|truncatewords:25 }}</div>
+        </div><br>
+
+        <a href="{% url 'order_detail_url' order_id=order.id %}">Подробнее</a>
+
+    {% endfor %}
+
+
+{% endblock %}

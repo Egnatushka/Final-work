@@ -13,7 +13,7 @@
             <img src="{{ work.photo.url }}" alt="work_photo" width="200px" height="200px">
             <div>{{ work.description|truncatewords:25 }}</div>
 
-            <a href="{% url 'works_detail_url' works_ex_id=work.id %}">Прочитать описание</a>
+            <a href="{{ work.get_absolute_url }}">Прочитать описание</a>
         </div>
 
     {% endfor %}
