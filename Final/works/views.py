@@ -7,8 +7,9 @@ from .forms import *
 
 
 def index(request):
+    info = Info.objects.all()
     works = Work.objects.all()
-    return render(request, 'works/work_example_list.html', context={'works': works})
+    return render(request, 'works/work_example_list.html', context={'works': works, 'info': info})
 
 
 
