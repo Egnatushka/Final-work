@@ -1,23 +1,40 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
     <title>{% block title%}{% endblock %}</title>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@500&display=swap" rel="stylesheet">
 </head>
 <body>
     
+    <header>
+        <div class="container">
+            <div class="logo">
+            </div>
+            <nav>
+                <ul class="nav_block">
+                    <li class="nav_item"><a href="{% url 'work_example_list' %}">главная</a></li>
+                    <li class="nav_item"><a href="">стоимость работ</a></li>
+                    <li class="nav_item"><a href="{% url 'order_crate_url' %}">Добавить заказ</a></li>
+                    <li class="nav_item"><a href="{% url 'order_list_url' %}">Все</a></li>
+                    <li class="nav_item"><a href="{% url 'active_order_url' %}">в процессе</a></li>
+                    <li class="nav_item"><a href="{% url 'complited_order_url' %}">готовые</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+
     {% block content %}
     {% endblock %}
 
 
-    <!-- <div>
-        {% for i in info %}
-
-            <div>{{ i.phone }}</div>
-
-        {% endfor %}
-    </div> -->
+   <footer>
+        
+   </footer>
 
 </body>
 </html>

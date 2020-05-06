@@ -101,6 +101,7 @@ nav{
     display: flex;
     flex-direction: row;
     height: 500px;
+    margin: 0 0 20px 0;
 }
 
 .work_info{
@@ -135,4 +136,91 @@ nav{
 
 .hidden_tag{
     display: none;
+}
+
+
+
+
+
+.orders_list_title{
+    font-weight: bold;
+    font-size: 30px;
+    padding: 5px 0 20px 10px;
+}
+
+.order_card{
+    position: relative;
+    height: 300px;
+    font-size: 19px;
+    border: 1px solid rgb(0, 0, 0);
+    border-radius: 20px;
+    background-color: rgb(230, 230, 230);
+    padding: 15px 20px;
+    margin-bottom: 20px;
+}
+
+.order_name{
+    font-weight: 700;
+    font-size: 23px;
+    margin: 0 0 15px 0;
+    border-bottom: 1px solid black;
+}
+
+.order_adres{
+    margin: 10px 0;
+}
+
+.order_adres p{
+    padding-bottom: 3px;
+}
+
+.order_desc{
+    padding: 15px 0;
+    margin-bottom: 40px;
+}
+
+.btn_order{
+    position: absolute;
+    bottom: 15px;
+    right: 100px;
+}
+
+
+
+.order_detail_block{
+    height: 850px;
+    font-size: 20px;
+    margin: 30px;
+}
+
+.order_detail_field{
+    margin: 0 0 15px 0;
+}
+
+.order_field{
+    padding: 10px 0 0 20px;
+}
+
+.btn_block{
+    margin-top: 80px;
+}
+
+.btn_start{
+    border-radius: 30px;
+    margin: 10px;
+}
+
+.btn_start:hover{
+    background-color: rgb(19, 175, 19);
+    color: white;
+}
+
+.btn_complit{
+    margin: 10px;
+    border-radius: 30px;
+}
+
+.btn_complit:hover{
+    background-color: rgb(255, 39, 39);
+    color: white;
 }

@@ -5,19 +5,34 @@
 
 {% block content %}
 
-    <div>Список заказов</div><br>
+    <div class="container">
+        
+        <div class="orders_list_title">Список заказов</div>
+    
+    
+    
+        {% for tag in tag %}
+    
+        {% if tag.title == 'start' %}
+    
+            {% for order in tag.orders.all %}
+    
+                <div class="order_card">
+                    <div class="order_name">{{ order.customer }}</div>
+                    <div class="order_adres">
+                        <p class="adres_in_order">Ардрес :</p>
+                        {{ order.adress }}
+                    </div>
+                    <div class="order_desc">{{ order.description|truncatewords:70 }}</div>
 
-    {% for order in orders %}
-
-        <div>
-            <div>{{ order.customer }}</div>
-            <div>{{ order.adress }}</div>
-            <div>{{ order.description|truncatewords:25 }}</div>
-        </div><br>
-
-        <a href="{% url 'order_detail_url' order_id=order.id %}">Подробнее</a>
-
+                    <div class="btn_block"></div><a class="btn_desc btn_order" href="{{ order.get_absolute_url }}">Подробнее</a>
+                </div>
+    
+            {% endfor %}
+    
+        {% endif %}
+    
     {% endfor %}
-
+    </div>
 
 {% endblock %}

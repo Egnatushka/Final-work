@@ -23,8 +23,11 @@ class WorksDetail(View):
 class OrderList(View):
 
     def get(self, request):
-        orders = Order.objects.all()
-        return render(request, 'works/order_list.html', context={'orders': orders})
+        # orders = Order.objects.all()
+        # return render(request, 'works/order_list.html', context={'orders': orders})
+
+        tag = Tag.objects.all()
+        return render(request, 'works/order_list.html', context={'tag': tag})
 
 
 
@@ -54,7 +57,7 @@ class ComplitedOrder(View):
 class OrderCreate(View):
 
     def get(self, request):
-        order = OrderForm()
+        order = OrderForm(initial={'tag': Tag.objects.get(id=3)})
         return render(request, 'works/order_create.html', context={'order': order})
 
     def post(self, request):

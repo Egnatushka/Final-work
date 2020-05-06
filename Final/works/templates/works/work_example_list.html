@@ -1,21 +1,34 @@
 {% extends 'base.html' %}
 
+
 {% block title %}
     Пример работ
 {% endblock %}
 
 {% block content %}
+<div class="container">
+
+    <div class="work_ex_title">
+        Примеры наших работ.
+    </div>
 
     {% for work in works %}
-
-        <div>
-            <div>{{ work.title }}</div>
-            <img src="{{ work.photo.url }}" alt="work_photo" width="200px" height="200px">
-            <div>{{ work.description|truncatewords:25 }}</div>
-
-            <a href="{{ work.get_absolute_url }}">Прочитать описание</a>
-        </div>
-
-    {% endfor %}
-
+            <div class="work_block">
+                <div class="img_work"><img src="{{ work.photo.url }}"  alt=""></div>
+                <div class="work_info">
+                    <div class="work_title">{{ work.title }}</div>
+                    <div class="work_desc">{{ work.description }}</div>
+                    <a class="btn_desc" href="{{ work.get_absolute_url }}">Прочитать описание</a>
+                </div>
+            </div>
+            
+            {% endfor %}
+ </div>
+        
 {% endblock %}
+        <!-- <din class="img_work"><img src="{{ work.photo.url }}" alt="work_photo" width="100%"></div>
+        <div class="work_info">
+            <div>{{ work.title }}</div>
+            <div>{{ work.description|truncatewords:25 }}</div>
+            <a href="{{ work.get_absolute_url }}">Прочитать описание</a>
+        </div>  -->

@@ -11,7 +11,8 @@ class OrderForm(forms.ModelForm):
             'phone',
             'email',
             'adress',
-            'description'
+            'description',
+            'tag'
         ]
 
 

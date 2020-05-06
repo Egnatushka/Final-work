@@ -9,7 +9,13 @@
 
         {% csrf_token %}
 
-        {{ order.as_p }}
+        <div>{{ order.customer }}</div>
+        <div>{{ order.phone }}</div>  
+        <div>{{ order.email }}</div> 
+        <div>{{ order.adress }}</div>
+        <div>{{ order.description }}</div> 
+        <div class="hidden_tag">{{ order.tag }}</div> 
+
 
         <button type="submit">Добавить</button>
 
