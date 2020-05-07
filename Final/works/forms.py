@@ -15,6 +15,14 @@ class OrderForm(forms.ModelForm):
             'tag'
         ]
 
+        widgets = {
+            'customer': forms.TextInput(attrs={'class': 'form_field form_input'}),
+            'phone': forms.TextInput(attrs={'class': 'form_field form_input phone_field'}),
+            'email': forms.TextInput(attrs={'class': 'form_field form_input'}),
+            'adress': forms.TextInput(attrs={'class': 'form_field form_input'}),
+            'description': forms.Textarea(attrs={'class': 'form_field form_area'}),
+        }
+
 
 class OrderUpdateForm(forms.ModelForm):
 

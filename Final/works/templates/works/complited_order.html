@@ -5,28 +5,35 @@
 
 {% block content %}
 
-    <div>Ваши завершенные заказы :</div><br>
+<div class="container">
+        
+    <div class="orders_list_title">Список завершенных заказов</div>
 
 
 
     {% for tag in tag %}
 
-        {% if tag.title == 'complited' %}
+    {% if tag.title == 'complited' %}
 
-            {% for order in tag.orders.all %}
+        {% for order in tag.orders.all %}
 
-                <div>
-                    <div>{{ order.customer }}</div>
-                    <div>{{ order.adress }}</div>
-                    <div>{{ order.description|truncatewords:25 }}</div>
-                </div><br>
+            <div class="order_card">
+                <div class="order_name">{{ order.customer }}</div>
+                <div class="order_adres">
+                    <p class="adres_in_order">Ардрес :</p>
+                    {{ order.adress }}
+                </div>
+                <div class="order_desc">{{ order.description|truncatewords:70 }}</div>
 
-            {% endfor %}
+                <div class="btn_block"></div><a class="btn_desc btn_order" href="{{ order.get_complit_absolute_url }}">Подробнее</a>
+            </div>
 
-        {% endif %}
+        {% endfor %}
 
-    {% endfor %}
+    {% endif %}
 
+{% endfor %}
+</div>
 
 
 

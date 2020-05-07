@@ -38,6 +38,20 @@ class OrderDetail(View):
 
 
 
+class ActivDetailOrder(View):
+    def get(self, request, order_id):
+        order = Order.objects.get(id=order_id)
+        return render(request, 'works/active_order_detail.html', context={'order': order})
+
+
+
+class ComplitedOrderDetail(View):
+    def get(self, request, order_id):
+        order = Order.objects.get(id=order_id)
+        return render(request, 'works/complited_order_detail.html', context={'order': order})
+
+
+
 class ActivOrderList(View):
 
     def get(self, request):
@@ -51,6 +65,18 @@ class ComplitedOrder(View):
     def get(self, request):
         tag = Tag.objects.all()
         return render(request, 'works/complited_order.html', context={'tag': tag})
+
+
+class ComplitedOrderDelite(View):
+    
+    def get(self, request, order_id):
+        order = Order.objects.get(id=order_id)
+        return render(request, 'works/complited_order_delite.html', context={'order': order})
+
+    def post(self, request, order_id):
+        order = Order.objects.get(id=order_id)
+        order.delete()
+        return redirect('complited_order_url')
 
 
 

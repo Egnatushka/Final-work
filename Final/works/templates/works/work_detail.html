@@ -7,10 +7,16 @@
 
 {% block content %}
 
-    <div>
-        <div>{{ work.title }}</div>
-        <img src="{{ work.photo.url }}" alt="work_photo" width="200px" height="200px">
-        <div>{{ work.description }}</div>
+    <div class="container">
+        <div>
+            <div class="work_title">{{ work.title }}</div>
+            <div class="img_work_detil">
+                <img src="{{ work.photo.url }}" alt="work_photo" width="200px" height="200px">
+            </div>
+            <div class="work_desc work_desc_detail">
+                {{ work.description }}
+            </div>
+        </div>
     </div>
 
 {% endblock %}

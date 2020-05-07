@@ -5,20 +5,44 @@
 
 {% block content %}
 
-    <form action="{% url 'order_crate_url' %}" method="POST">
+    <div class="container form_container">
 
-        {% csrf_token %}
+        <form action="{% url 'order_crate_url' %}" method="POST">
+    
+            {% csrf_token %}
+    
+            <div class="form_field_block">
+                <p>Введите ваше имя :</p>
+                <p class="necessarily">Поле обязательно для ввода</p>
+                {{ order.customer }}
+            </div>
+            <div class="form_field_block">
+                <p>Введите ваш номер телефона :</p>
+                <p class="necessarily">Поле обязательно для ввода</p>
+                {{ order.phone }}
+            </div>  
+            <div class="form_field_block">
+                <p>Введите вашу элекронную почту :</p>
+                {{ order.email }}
+            </div> 
+            <div class="form_field_block">
+                <p>Введите ваш адресс, где будут проходить работы :</p>
+                <p class="necessarily">Поле обязательно для ввода</p>
+                {{ order.adress }}
+            </div>
+            <div class="form_field_block">
+                <p>Укажите вашу проблему :</p>
+                <p class="necessarily">Поле обязательно для ввода</p>
+                {{ order.description }}
+            </div> 
+            <div class="hidden_tag">{{ order.tag }}</div> 
+    
+    
+            <button type="submit" class="btn_desc btn_form">Добавить</button>
+    
+        </form>
 
-        <div>{{ order.customer }}</div>
-        <div>{{ order.phone }}</div>  
-        <div>{{ order.email }}</div> 
-        <div>{{ order.adress }}</div>
-        <div>{{ order.description }}</div> 
-        <div class="hidden_tag">{{ order.tag }}</div> 
+    </div>
 
-
-        <button type="submit">Добавить</button>
-
-    </form>
 
 {% endblock %}

@@ -14,7 +14,9 @@
 
     {% for work in works %}
             <div class="work_block">
-                <div class="img_work"><img src="{{ work.photo.url }}"  alt=""></div>
+                <div class="img_work">
+                    <img src="{{ work.photo.url }}"  alt="">
+                </div>
                 <div class="work_info">
                     <div class="work_title">{{ work.title }}</div>
                     <div class="work_desc">{{ work.description }}</div>

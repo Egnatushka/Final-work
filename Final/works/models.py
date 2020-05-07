@@ -28,6 +28,15 @@ class Order(models.Model):
     def get_absolute_url(self):
         return reverse('order_detail_url', kwargs={'order_id': self.id})
 
+    def get_active_absolute_url(self):
+        return reverse('active_order_detail_url', kwargs={'order_id': self.id})
+
+    def get_complit_absolute_url(self):
+        return reverse('complited_order_detail_url', kwargs={'order_id': self.id})
+
+    def get_complit_delite_absolute_url(self):
+        return reverse('complited_order_delite_url', kwargs={'order_id': self.id})
+
     def get_update_url(self):
         return reverse('order_update_url', kwargs={'order_id': self.id})
 
