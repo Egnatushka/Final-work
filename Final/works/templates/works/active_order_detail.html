@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+
+
+{% block title %}{{ order.customer }}{% endblock %}
+
+
+{% block content %}
+
+    <div class="container">
+
+        <div class="order_detail_block">
+    
+            <div class="order_detail_name order_detail_field">
+                <p>Имя :</p>
+                <p class="order_field">{{ order.customer }}</p>
+            </div>
+            <div class="order_detail_phone order_detail_field">
+                <p>Телефон :</p>
+                <p class="order_field">
+                    {{ order.phone }}
+                </p>
+            </div>
+            <div class="order_detail_email order_detail_field">
+                <p>Почта :</p>
+                <p class="order_field">
+                    {{ order.email }}
+                </p>                
+            </div>
+            <div class="order_detail_adress order_detail_field">
+                <p>Адресс :</p>
+                <p class="order_field">
+                    {{ order.adress }}
+                </p>
+            </div>
+            <div class="order_detail_desc order_detail_field">
+                <p>Описание :</p>
+                <p class="order_field">             
+                    {{ order.description }}
+                </p>
+            </div>
+    
+            
+            <div class="btn_block">
+                <a class="btn_desc btn_delite" href="{{ order.get_update_url }}">Завершить</a>
+            </div>
+        </div>
+
+    </div>
+
+{% endblock %}

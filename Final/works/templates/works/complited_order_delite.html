@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block title %}
+
+    Delete post "{{ order.customer }}}"
+
+{% endblock %}
+
+{% block content %}
+
+    <div class="container container_delite">
+
+        <form action="" method="POST">
+    
+            {% csrf_token %}
+    
+            <div class="ask_delete_block">
+                <h3 class="ask_delete">Вы уверены, что хотите удалить заказ {{ order.customer }} ?</h3>
+            </div>
+    
+            <div class="button_delete_block">
+                <a href="{{ order.get_complit_absolute_url }}" class="btn_cancel">Нет, вернуть назад</a>
+                <button type="submit" class="btn_delite_order">Да, хочу удалить</button>
+            </div>
+    
+        </form>
+
+    </div>
+
+
+{% endblock %}
