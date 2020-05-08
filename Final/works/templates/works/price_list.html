@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block title %}Цены на работы{% endblock %}
+
+
+{% block content %}
+
+    <div class="container">
+
+        <div class="price_title_block">
+            Наш прайс-лист
+        </div>
+
+        {% for price_item in price_list %}
+        <div class="price_block">
+            <div class="price_title">
+                <p class="price_p">Работа</p>
+                <p class="price_item">
+                    {{ price_item.title }}
+                </p>
+            </div>
+            <div class="price">
+                <p class="price_p">Цена</p>
+                <p class="price_item">
+                    {{ price_item.price }}
+                </p>
+            </div>
+            <div class="price_desc">
+                {{ price_item.desc }}
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+
+{% endblock %}

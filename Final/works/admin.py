@@ -9,3 +9,5 @@ admin.site.register(Order)
 admin.site.register(Tag)
 
 admin.site.register(Info)
+
+admin.site.register(Price)

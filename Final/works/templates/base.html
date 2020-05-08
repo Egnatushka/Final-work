@@ -17,7 +17,7 @@
             <nav>
                 <ul class="nav_block">
                     <li class="nav_item"><a href="{% url 'work_example_list' %}">главная</a></li>
-                    <li class="nav_item"><a href="">стоимость работ</a></li>
+                    <li class="nav_item"><a href="{% url 'price_list_url' %}">стоимость работ</a></li>
                     <li class="nav_item"><a href="{% url 'order_crate_url' %}">Добавить заказ</a></li>
                     <li class="nav_item"><a href="{% url 'order_list_url' %}">Все</a></li>
                     <li class="nav_item"><a href="{% url 'active_order_url' %}">в процессе</a></li>

@@ -20,6 +20,14 @@ class WorksDetail(View):
 
 
 
+class PriceList(View):
+
+    def get(self, request):
+        price_list = Price.objects.all()
+        return render(request, 'works/price_list.html', context={'price_list': price_list})
+
+
+
 class OrderList(View):
 
     def get(self, request):

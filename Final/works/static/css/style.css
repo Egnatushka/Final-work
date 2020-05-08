@@ -85,6 +85,8 @@ nav{
     font-weight: bold;
     font-size: 30px;
     padding: 5px 0 20px 10px;
+    font-style: oblique;
+
 }
 
 .img_work{
@@ -146,6 +148,8 @@ nav{
     font-weight: bold;
     font-size: 30px;
     padding: 5px 0 20px 10px;
+    font-style: oblique;
+
 }
 
 .order_card{
@@ -351,4 +355,51 @@ nav{
 
 .work_desc_detail{
     margin: 20px;
+}
+
+
+
+
+
+
+.price_block{
+    width: 60%;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    font-size: 20px;
+    text-align: center;
+    border: 1.5px solid rgb(72, 72, 119);
+    margin-bottom: 20px;
+}
+
+.price_title{
+    width: 50%;
+}
+
+.price{
+    width: 50%;
+}
+
+.price_desc{
+    padding: 20px;
+    border-top: 1.5px solid rgb(72, 72, 119);
+}
+
+.price_item{
+    padding: 7px;
+}
+
+
+.price_p{
+    border-bottom: 1.5px solid rgb(72, 72, 119);
+    padding: 7px;
+}
+
+.price_title_block{
+    text-align: center;
+    font-weight: 700;
+    font-size: 25px;
+    margin: 10px;
+    font-style: oblique;
 }
