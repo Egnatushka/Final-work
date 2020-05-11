@@ -4,19 +4,21 @@ from django.views import View
 from .models import *
 from .forms import *
 
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 
 def index(request):
-    info = Info.objects.all()
     works = Work.objects.all()
-    return render(request, 'works/work_example_list.html', context={'works': works, 'info': info})
+    return render(request, 'works/work_example_list.html', context={'works': works})
 
 
 
-class WorksDetail(View):    
+class WorksDetail(LoginRequiredMixin, View):    
     def get(self, request, works_ex_id):
         work = Work.objects.get(id=works_ex_id)
         return render(request, 'works/work_detail.html', context={'work':work})
+
+    raise_exception = True
 
 
 
@@ -31,32 +33,36 @@ class PriceList(View):
 class OrderList(View):
 
     def get(self, request):
-        # orders = Order.objects.all()
-        # return render(request, 'works/order_list.html', context={'orders': orders})
-
         tag = Tag.objects.all()
+        print(tag)
         return render(request, 'works/order_list.html', context={'tag': tag})
 
 
 
-class OrderDetail(View):
+class OrderDetail(LoginRequiredMixin, View):
     def get(self, request, order_id):
         order = Order.objects.get(id=order_id)
         return render(request, 'works/order_detail.html', context={'order': order})
 
+    raise_exception = True
 
 
-class ActivDetailOrder(View):
+
+class ActivDetailOrder(LoginRequiredMixin, View):
     def get(self, request, order_id):
         order = Order.objects.get(id=order_id)
         return render(request, 'works/active_order_detail.html', context={'order': order})
 
+    raise_exception = True
 
 
-class ComplitedOrderDetail(View):
+
+class ComplitedOrderDetail(LoginRequiredMixin, View):
     def get(self, request, order_id):
         order = Order.objects.get(id=order_id)
         return render(request, 'works/complited_order_detail.html', context={'order': order})
+
+    raise_exception = True
 
 
 
@@ -75,7 +81,7 @@ class ComplitedOrder(View):
         return render(request, 'works/complited_order.html', context={'tag': tag})
 
 
-class ComplitedOrderDelite(View):
+class ComplitedOrderDelite(LoginRequiredMixin, View):
     
     def get(self, request, order_id):
         order = Order.objects.get(id=order_id)
@@ -86,9 +92,11 @@ class ComplitedOrderDelite(View):
         order.delete()
         return redirect('complited_order_url')
 
+    raise_exception = True
 
 
-class OrderCreate(View):
+
+class OrderCreate(LoginRequiredMixin, View):
 
     def get(self, request):
         order = OrderForm(initial={'tag': Tag.objects.get(id=3)})
@@ -102,9 +110,11 @@ class OrderCreate(View):
             return redirect(new_order)
         return render(request, 'works/order_create.html', context={'order': bound_form})
 
+    raise_exception = True
 
 
-class OrderUpdate(View):
+
+class OrderUpdate(LoginRequiredMixin, View):
 
     def get(self, request, order_id):
         order = Order.objects.get(id=order_id)
@@ -123,3 +133,5 @@ class OrderUpdate(View):
             new_order = bound_form.save()
             return redirect(new_order)
         return render(request, 'works/order_update.html', context={'form': bound_form, 'order': order})
+
+    raise_exception = True

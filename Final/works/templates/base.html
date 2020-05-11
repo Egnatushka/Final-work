@@ -19,9 +19,11 @@
                     <li class="nav_item"><a href="{% url 'work_example_list' %}">главная</a></li>
                     <li class="nav_item"><a href="{% url 'price_list_url' %}">стоимость работ</a></li>
                     <li class="nav_item"><a href="{% url 'order_crate_url' %}">Добавить заказ</a></li>
-                    <li class="nav_item"><a href="{% url 'order_list_url' %}">Все</a></li>
-                    <li class="nav_item"><a href="{% url 'active_order_url' %}">в процессе</a></li>
-                    <li class="nav_item"><a href="{% url 'complited_order_url' %}">готовые</a></li>
+                    {% if request.user.is_authenticated and request.user.is_staff %}
+                        <li class="nav_item"><a href="{% url 'order_list_url' %}">Все</a></li>
+                        <li class="nav_item"><a href="{% url 'active_order_url' %}">в процессе</a></li>
+                        <li class="nav_item"><a href="{% url 'complited_order_url' %}">готовые</a></li>
+                    {% endif %}
                 </ul>
             </nav>
         </div>
@@ -33,7 +35,28 @@
 
 
    <footer>
-        
+        <div class="container">
+
+            <div class="footer_block">
+                
+                <div class="phone_number">
+                    <a href="tel:89167702520">89167702520</a>  
+                </div>
+                <div class="accounts">
+                    <div class="email">
+                        <a href="mailto:signat1911@gmail.com" class="accounts_item">signat1911@gmail.com</a>
+                    </div>
+                    <div class="vk">
+                        <a href="https://vk.com/tuk_nado" target="_blank" class="accounts_item">Vk</a>
+                    </div>
+                    <div class="ok">
+                        <a href="" class="accounts_item">Одноклассники</a>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
    </footer>
 
 </body>

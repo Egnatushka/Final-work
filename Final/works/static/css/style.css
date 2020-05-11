@@ -39,6 +39,10 @@ h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight: 400;}
 
 body{
     background-color: rgb(241, 241, 241);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
 }
 header{
     height: 90px;
@@ -49,6 +53,7 @@ header{
 
 .container{
     max-width: 1500px;
+    width: 1500px;
     margin: 0 auto;
     padding: 0 15px;
 }
@@ -78,6 +83,31 @@ nav{
     color: yellow;
     border-bottom: 2px solid yellow;
 }
+
+
+
+
+
+footer{
+    background-color: rgb(72, 72, 119);
+    padding: 30px;
+    margin-top: 150px;
+}
+
+.footer_block{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    font-size: 18px;
+    align-items: center;
+}
+
+.footer_block a{
+    color: white;
+}
+
+
+
 
 
 
@@ -389,6 +419,7 @@ nav{
 .price_desc{
     padding: 20px;
     border-top: 1.5px solid rgb(72, 72, 119);
+    width: 100%;
 }
 
 .price_item{
