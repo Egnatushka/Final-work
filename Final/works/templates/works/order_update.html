@@ -6,16 +6,21 @@
 
 {% block content %}
 
-    <div>Обновление заказа {{ order.customer }} :</div>
+    <div class="container">
+    
+        <div class="update_block">
+            <div class="update_title">Обновление заказа {{ order.customer }} :</div>
+        
+            <form action="{{ order.get_update_url }}" method="POST">
+                {% csrf_token %}
+        
+                <div class="update_field">{{ form.tag }}</div>
+        
+                <button class="btn_desc btn_update" type="submit" name="button">Обновать заказ</button>
+        
+            </form>
+        </div>
 
-    <form action="{{ order.get_update_url }}" method="POST">
-        {% csrf_token %}
-
-        <div>{{ form.tag }}</div>
-
-        <button type="submit" name="button">Обновать заказ</button>
-
-
-    </form>
+    </div>
 
 {% endblock %}

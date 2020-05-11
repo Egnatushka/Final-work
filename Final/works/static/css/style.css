@@ -37,7 +37,9 @@ h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight: 400;}
 
 /*--------------------*/    
 
-
+body{
+    background-color: rgb(241, 241, 241);
+}
 header{
     height: 90px;
     background-color: rgb(72, 72, 119);
@@ -104,6 +106,7 @@ nav{
     flex-direction: row;
     height: 500px;
     margin: 0 0 20px 0;
+    box-shadow: 10px 10px 10px gray;
 }
 
 .work_info{
@@ -111,6 +114,7 @@ nav{
     font-size: large;
     border: 1px solid black;
     padding: 0 15px;
+    width: 50%;
 }
 
 .work_title{
@@ -156,9 +160,10 @@ nav{
     position: relative;
     height: 300px;
     font-size: 19px;
-    border: 1px solid rgb(0, 0, 0);
-    border-radius: 20px;
-    background-color: rgb(230, 230, 230);
+    /* border: 1px solid rgb(0, 0, 0); */
+    /* border-radius: 20px; */
+    box-shadow: 10px 5px 10px gray;
+    background-color: white;
     padding: 15px 20px;
     margin-bottom: 20px;
 }
@@ -402,4 +407,50 @@ nav{
     font-size: 25px;
     margin: 10px;
     font-style: oblique;
+}
+
+
+
+
+
+
+.update_block{
+    margin-left: 20%;
+    font-size: 22px;
+    padding: 30px 0;
+}
+
+.update_title{
+    margin-bottom: 20px;
+}
+
+.update_field select option{
+    padding: 15px;
+    width: 400px;
+}
+
+.update_field select option[value="1"]{
+    background-color: rgb(19, 175, 19);
+    color: rgb(230, 230, 230);
+}
+
+.update_field select option[value="2"]{
+    background-color: rgb(255, 39, 39);
+    color: rgb(235, 231, 231);
+}
+
+.update_field select option[value="1"]:hover{
+    background-color: greenyellow;
+    color: grey;
+}
+
+.update_field select option[value="2"]:hover{
+    background-color: rgb(255, 210, 85);
+    color: gray;
+}
+
+.btn_update{
+    width: 150px;
+    font-size: 17px;
+    border-radius: 20px;
 }

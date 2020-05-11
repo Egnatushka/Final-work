@@ -116,6 +116,10 @@ class OrderUpdate(View):
         bound_form = OrderUpdateForm(request.POST, instance=order)
 
         if bound_form.is_valid():
+            if bound_form.cleaned_data['tag'].first() == Tag.objects.get(id=2):
+                print("compited_order")
+                new_order = bound_form.save()
+                return redirect('complited_order_detail_url', order_id=order.id)
             new_order = bound_form.save()
             return redirect(new_order)
         return render(request, 'works/order_update.html', context={'form': bound_form, 'order': order})
